@@ -20,10 +20,6 @@ class OtpTokenAdmin(admin.ModelAdmin):
 
 admin.site.register(OtpToken, OtpTokenAdmin)
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(Category)
-admin.site.register(Timing)
-admin.site.register(Products)
-admin.site.register(Booking)
-admin.site.register(Order)
-admin.site.register(OrderItem)
+
+
 admin.site.register(Profile)
