@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Tracking Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card-header {
+            padding: 20px;
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+
+        #animalMap {
+            height: 500px;
+            width: 100%;
+        }
+
+        .card-footer {
+            padding: 15px 20px;
+            background: #f9f9f9;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-item {
+            font-size: 16px;
+        }
+
+        .stat-label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .animal-legend {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            line-height: 24px;
+            color: #555;
+        }
+
+        .animal-legend h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+
+        .animal-legend i {
+            width: 12px;
+            height: 12px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+            border-radius: 50%;
+        }
+
+        .animal-popup h3 {
+            margin: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .animal-popup p {
+            margin: 5px 0;
+        }
+
+        .animal-marker {
+            transition: all 0.3s ease;
+        }
+
+        .animal-marker:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Animal Tracking Map</h2>
+    </div>
+    <div class="card-body">
+        <div id="animalMap"></div>
+    </div>
+    <div class="card-footer">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">Total Animals:</span>
+                <span id="totalAnimals">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Last Update:</span>
+                <span id="lastMapUpdate">-</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Sample JS for demo -->
+<script>
+// Initialize map (Centered on Bandipur National Park)
+var map = L.map('animalMap').setView([11.7, 76.6], 10);
+
+// Add tile layer
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+const animalTypes = [
+    "Lion", "Tiger", "Bear", "Wolf", "Elephant",
+    "Giraffe", "Zebra", "Rhino", "Buffalo", "Hippo"
+];
+
+const colors = [
+    "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231",
+    "#911eb4", "#46f0f0", "#f032e6", "#bcf60c", "#fabebe"
+];
+
+// CSRF protection for Django
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// Keep track of all markers for removal
+let markers = [];
+
+function clearAllMarkers() {
+    // Remove all existing markers
+    markers.forEach(marker => map.removeLayer(marker));
+    markers = [];
+}
+
+function updateMapWithAnimalData() {
+    const csrftoken = getCookie('csrftoken');
+    
+    // Fetch animal data from your API endpoint
+    fetch('/api/sensor-data/', {
+        method: 'GET',
+        headers: {
+            'X-CSRFToken': csrftoken,
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Clear existing markers
+        clearAllMarkers();
+        
+        // Add markers for new animal locations
+        const animalData = data.animal_location_data;
+        
+        // Check if we have a reasonable number of animals
+        if (animalData && animalData.length > 0) {
+            animalData.forEach(animal => {
+                const typeIndex = animal.animal_type;
+                const marker = L.circleMarker([animal.latitude, animal.longitude], {
+                    radius: 8,
+                    color: colors[typeIndex % colors.length],
+                    fillColor: colors[typeIndex % colors.length],
+                    fillOpacity: 0.8,
+                    className: "animal-marker"
+                }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div class="animal-popup">
+                        <h3>${animal.animal_name}</h3>
+                        <p><strong>ID:</strong> ${animal.animal_id}</p>
+                        <p><strong>Location:</strong> ${animal.latitude.toFixed(4)}, ${animal.longitude.toFixed(4)}</p>
+                        <p><strong>Time:</strong> ${animal.timestamp}</p>
+                    </div>
+                `);
+                
+                markers.push(marker);
+            });
+            
+            // Update stats
+            document.getElementById("totalAnimals").innerText = animalData.length;
+            document.getElementById("lastMapUpdate").innerText = new Date().toLocaleString();
+        } else {
+            // Fallback to generate properly distributed dummy data
+            generateWellDistributedDummyData(50);
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching animal data:', error);
+        // Fallback to generate properly distributed dummy data
+        generateWellDistributedDummyData(50);
+    });
+}
+
+// Generate dummy data with proper distribution
+function generateWellDistributedDummyData(count) {
+    clearAllMarkers();
+    
+    // Define area bounds (Bandipur National Park and surrounding area)
+    const southWest = [11.5, 76.2];
+    const northEast = [12.0, 77.1];
+    
+    // Calculate area dimensions
+    const latSpan = northEast[0] - southWest[0];
+    const lonSpan = northEast[1] - southWest[1];
+    
+    // Create a grid system to ensure better distribution
+    const gridSize = Math.ceil(Math.sqrt(count));
+    const latStep = latSpan / gridSize;
+    const lonStep = lonSpan / gridSize;
+    
+    for (let i = 1; i <= count; i++) {
+        const typeIndex = (i - 1) % 10;
+        const animalName = animalTypes[typeIndex];
+        const color = colors[typeIndex];
+        
+        // Calculate grid position
+        const gridX = (i - 1) % gridSize;
+        const gridY = Math.floor((i - 1) / gridSize);
+        
+        // Calculate base position in the grid
+        const baseLat = southWest[0] + (gridY * latStep);
+        const baseLon = southWest[1] + (gridX * lonStep);
+        
+        // Add some randomness within the grid cell
+        const lat = baseLat + (Math.random() * latStep);
+        const lon = baseLon + (Math.random() * lonStep);
+
+        const marker = L.circleMarker([lat, lon], {
+            radius: 8,
+            color: color,
+            fillColor: color,
+            fillOpacity: 0.8,
+            className: "animal-marker"
+        }).addTo(map);
+
+        marker.bindPopup(`
+            <div class="animal-popup">
+                <h3>${animalName}</h3>
+                <p><strong>ID:</strong> ${i}</p>
+                <p><strong>Location:</strong> ${lat.toFixed(4)}, ${lon.toFixed(4)}</p>
+                <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+            </div>
+        `);
+        
+        markers.push(marker);
+    }
+
+    document.getElementById("totalAnimals").innerText = count;
+    document.getElementById("lastMapUpdate").innerText = new Date().toLocaleString();
+}
+
+// Add a legend to the map
+function addLegend() {
+    const legend = L.control({position: 'bottomright'});
+    
+    legend.onAdd = function() {
+        const div = L.DomUtil.create('div', 'animal-legend');
+        let legendContent = '<h4>Animal Types</h4>';
+        
+        for (let i = 0; i < animalTypes.length; i++) {
+            legendContent += 
+                `<div>
+                    <i style="background: ${colors[i]}"></i>
+                    <span>${animalTypes[i]}</span>
+                </div>`;
+        }
+        
+        div.innerHTML = legendContent;
+        return div;
+    };
+    
+    legend.addTo(map);
+}
+
+// Add filter controls
+function addAnimalFilterControls() {
+    const filterControl = L.control({position: 'topright'});
+    
+    filterControl.onAdd = function() {
+        const div = L.DomUtil.create('div', 'animal-filter-control');
+        div.innerHTML = `
+            <div style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+                <h4 style="margin: 0 0 5px;">Filter Animals</h4>
+                <select id="animalTypeFilter" style="width: 100%; margin-bottom: 5px;">
+                    <option value="all">All Animals</option>
+                    ${animalTypes.map((type, index) => `<option value="${index}">${type}</option>`).join('')}
+                </select>
+                <button id="refreshDataBtn" style="width: 100%;">Refresh Data</button>
+            </div>
+        `;
+        return div;
+    };
+    
+    filterControl.addTo(map);
+    
+    // Add event listeners after DOM is fully loaded
+    setTimeout(() => {
+        document.getElementById('animalTypeFilter').addEventListener('change', function() {
+            const selectedType = this.value;
+            filterAnimalsByType(selectedType);
+        });
+        
+        document.getElementById('refreshDataBtn').addEventListener('click', function() {
+            updateMapWithAnimalData();
+        });
+    }, 500);
+}
+
+function filterAnimalsByType(typeValue) {
+    clearAllMarkers();
+    
+    // Re-fetch data and apply filter
+    fetch('/api/sensor-data/', {
+        method: 'GET',
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        const animalData = data.animal_location_data;
+        let filteredData = animalData;
+        
+        // Apply filter if not "all"
+        if (typeValue !== 'all') {
+            filteredData = animalData.filter(animal => animal.animal_type == typeValue);
+        }
+        
+        // Create markers for filtered data
+        filteredData.forEach(animal => {
+            const typeIndex = animal.animal_type;
+            const marker = L.circleMarker([animal.latitude, animal.longitude], {
+                radius: 8,
+                color: colors[typeIndex % colors.length],
+                fillColor: colors[typeIndex % colors.length],
+                fillOpacity: 0.8,
+                className: "animal-marker"
+            }).addTo(map);
+            
+            marker.bindPopup(`
+                <div class="animal-popup">
+                    <h3>${animal.animal_name}</h3>
+                    <p><strong>ID:</strong> ${animal.animal_id}</p>
+                    <p><strong>Location:</strong> ${animal.latitude.toFixed(4)}, ${animal.longitude.toFixed(4)}</p>
+                    <p><strong>Time:</strong> ${animal.timestamp}</p>
+                </div>
+            `);
+            
+            markers.push(marker);
+        });
+        
+        // Update stats
+        document.getElementById("totalAnimals").innerText = filteredData.length;
+        document.getElementById("lastMapUpdate").innerText = new Date().toLocaleString();
+    })
+    .catch(error => {
+        console.error('Error fetching animal data:', error);
+        // If filter fails, generate dummy data with the filter applied
+        if(typeValue === 'all') {
+            generateWellDistributedDummyData(50);
+        } else {
+            generateFilteredDummyData(typeValue, 5); // Show ~5 animals of selected type
+        }
+    });
+}
+
+// Generate filtered dummy data
+function generateFilteredDummyData(animalType, count) {
+    clearAllMarkers();
+    
+    // Define area bounds (Bandipur National Park and surrounding area)
+    const southWest = [11.5, 76.2];
+    const northEast = [12.0, 77.1];
+    
+    // Calculate area dimensions
+    const latSpan = northEast[0] - southWest[0];
+    const lonSpan = northEast[1] - southWest[1];
+    
+    for (let i = 1; i <= count; i++) {
+        const typeIndex = parseInt(animalType);
+        const animalName = animalTypes[typeIndex];
+        const color = colors[typeIndex];
+        
+        // Generate well-distributed random locations
+        const lat = southWest[0] + (Math.random() * latSpan);
+        const lon = southWest[1] + (Math.random() * lonSpan);
+
+        const marker = L.circleMarker([lat, lon], {
+            radius: 8,
+            color: color,
+            fillColor: color,
+            fillOpacity: 0.8,
+            className: "animal-marker"
+        }).addTo(map);
+
+        marker.bindPopup(`
+            <div class="animal-popup">
+                <h3>${animalName}</h3>
+                <p><strong>ID:</strong> ${i}</p>
+                <p><strong>Location:</strong> ${lat.toFixed(4)}, ${lon.toFixed(4)}</p>
+                <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+            </div>
+        `);
+        
+        markers.push(marker);
+    }
+
+    document.getElementById("totalAnimals").innerText = count;
+    document.getElementById("lastMapUpdate").innerText = new Date().toLocaleString();
+}
+
+// Initialize components
+addLegend();
+addAnimalFilterControls();
+
+// Run the initial data fetch and setup
+generateWellDistributedDummyData(50); // Start with proper dummy data
+setTimeout(updateMapWithAnimalData, 500); // Then try to fetch real data
+
+// Set interval to update every 30 seconds
+setInterval(updateMapWithAnimalData, 30000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+Simulating 500 sensor readings for wildlife conservation system...
+Reading 1 (0.0%): Avg Temp: 0.30°C, Status: Frost Warning
+Reading 101 (20.0%): Avg Temp: 4.93°C, Status: Normal
+Reading 201 (40.0%): Avg Temp: 27.00°C, Status: Normal
+Reading 301 (60.0%): Avg Temp: 37.83°C, Status: Normal
+Reading 401 (80.0%): Avg Temp: 27.32°C, Status: Normal
+Simulation complete! Data saved to WildlifeConservation_22BCE2778.csv

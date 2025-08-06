@@ -1,0 +1,19 @@
+Generating 50 animal locations in Bandipur National Park...
+Data saved to AnimalLocations.csv
+Generating 100 readings for each animal...
+Completed 0 readings (0.0%)
+Completed 10 readings (10.0%)
+Completed 20 readings (20.0%)
+Completed 30 readings (30.0%)
+Completed 40 readings (40.0%)
+Completed 50 readings (50.0%)
+Completed 60 readings (60.0%)
+Completed 70 readings (70.0%)
+Completed 80 readings (80.0%)
+Completed 90 readings (90.0%)
+
+All data generation complete!
+1. Single location snapshot saved to AnimalLocations.csv
+2. Multiple readings saved to AnimalMovements.csv
+Note: Coordinates represent locations in Bandipur National Park, India
+      (Longitude: 76.200000 to 76.900000 E, Latitude: 11.600000 to 12.000000 N)

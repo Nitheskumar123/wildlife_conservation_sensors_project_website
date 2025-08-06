@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save_wildlife</title>
+
+    <!-- Bootstrap, Icons, Razorpay -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <!-- Your Static CSS (Correct Path Below) -->
+    <link rel="stylesheet" href="{% static 'resfinal.css' %}"> 
+
+    <!-- Embedded Wildlife Styles -->
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #wildlife-spline-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #wildlife-overlay-box {
+            position: absolute;
+            z-index: 2;
+            top: 70px;
+            left: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+
+        #wildlife-title {
+            font-size: 2rem;
+        }
+
+        #wildlife-subtitle {
+            font-size: 1rem;
+        }
+        .wildlife-section-wrapper {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 80%;
+          text-align: center;
+      }
+      
+      .wildlife-section-content {
+          
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          max-width: 800px;
+      }
+      
+      .wildlife-section-content h1 {
+          font-size: 2.5rem;
+          margin-bottom: 15px;
+          color: #2a4d2e;
+      }
+      
+      .wildlife-section-content p {
+        
+          font-size: 1.1rem;
+          color: #ffffff;
+      }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" role="alert" style="position: absolute; margin-top: 60px;">
+        <h5>{{ message }}</h5>
+    </div>
+    {% endfor %}
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

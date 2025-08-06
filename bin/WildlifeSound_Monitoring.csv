@@ -1,0 +1,1201 @@
+Index,Sound,Result
+1,31.55,Normal
+2,29.74,Normal
+3,31.91,Normal
+4,29.57,Normal
+5,27.83,Normal
+6,38.75,Normal
+7,51.27,Normal
+8,51.52,Normal
+9,47.52,Normal
+10,50.45,Normal
+11,48.57,Normal
+12,44.39,Normal
+13,56.59,Normal
+14,42.79,Normal
+15,43.33,Normal
+16,46.90,Normal
+17,45.80,Normal
+18,51.00,Normal
+19,37.07,Normal
+20,51.52,Human Activity Detected
+21,31.03,Normal
+22,30.74,Normal
+23,27.66,Normal
+24,41.30,Human Activity Detected
+25,32.15,Normal
+26,38.40,Normal
+27,41.87,Human Activity Detected
+28,29.23,Normal
+29,28.39,Normal
+30,39.86,Normal
+31,47.45,Normal
+32,50.41,Normal
+33,51.02,Normal
+34,50.79,Normal
+35,42.59,Normal
+36,45.04,Normal
+37,53.54,Normal
+38,51.44,Normal
+39,55.17,Normal
+40,61.76,Human Activity Detected
+41,51.53,Normal
+42,51.38,Normal
+43,38.94,Normal
+44,47.82,Human Activity Detected
+45,32.27,Normal
+46,30.35,Normal
+47,32.20,Normal
+48,28.48,Normal
+49,37.37,Normal
+50,30.59,Normal
+51,39.00,Normal
+52,28.48,Normal
+53,29.91,Normal
+54,38.11,Normal
+55,51.74,Normal
+56,56.26,Normal
+57,50.43,Normal
+58,51.13,Normal
+59,50.39,Normal
+60,48.84,Normal
+61,42.83,Normal
+62,50.45,Normal
+63,47.75,Normal
+64,47.24,Normal
+65,47.76,Normal
+66,48.49,Normal
+67,45.57,Human Activity Detected
+68,36.36,Normal
+69,40.81,Human Activity Detected
+70,30.51,Normal
+71,30.82,Normal
+72,35.25,Normal
+73,28.75,Normal
+74,42.84,Human Activity Detected
+75,39.76,Normal
+76,35.56,Normal
+77,30.83,Normal
+78,39.25,Normal
+79,48.40,Normal
+80,49.47,Normal
+81,45.68,Normal
+82,44.60,Normal
+83,46.39,Normal
+84,42.91,Normal
+85,47.51,Normal
+86,44.78,Normal
+87,46.43,Normal
+88,49.05,Normal
+89,52.41,Normal
+90,48.35,Normal
+91,49.14,Human Activity Detected
+92,35.81,Normal
+93,28.76,Normal
+94,41.08,Human Activity Detected
+95,30.57,Normal
+96,29.99,Normal
+97,26.10,Normal
+98,30.47,Normal
+99,36.75,Normal
+100,30.79,Normal
+101,37.25,Normal
+102,40.15,Human Activity Detected
+103,52.10,Normal
+104,50.87,Normal
+105,59.68,Normal
+106,53.77,Normal
+107,50.49,Normal
+108,42.84,Normal
+109,47.44,Normal
+110,42.77,Normal
+111,48.88,Normal
+112,51.79,Normal
+113,53.77,Normal
+114,51.32,Normal
+115,41.06,Human Activity Detected
+116,46.11,Human Activity Detected
+117,44.16,Human Activity Detected
+118,52.86,Human Activity Detected
+119,39.17,Normal
+120,37.57,Normal
+121,27.37,Normal
+122,26.77,Normal
+123,29.40,Normal
+124,40.42,Human Activity Detected
+125,31.30,Normal
+126,40.08,Human Activity Detected
+127,51.49,Normal
+128,48.86,Normal
+129,47.73,Normal
+130,42.17,Normal
+131,47.14,Normal
+132,46.29,Normal
+133,44.44,Normal
+134,45.37,Normal
+135,43.54,Normal
+136,54.47,Normal
+137,44.76,Normal
+138,49.71,Normal
+139,37.71,Normal
+140,44.34,Human Activity Detected
+141,29.93,Normal
+142,28.38,Normal
+143,37.16,Normal
+144,27.58,Normal
+145,40.47,Human Activity Detected
+146,33.50,Normal
+147,30.75,Normal
+148,38.31,Normal
+149,30.58,Normal
+150,41.30,Human Activity Detected
+151,60.64,Human Activity Detected
+152,50.45,Normal
+153,45.85,Normal
+154,43.67,Normal
+155,45.46,Normal
+156,51.44,Normal
+157,44.44,Normal
+158,47.54,Normal
+159,48.39,Normal
+160,45.17,Normal
+161,50.76,Normal
+162,54.77,Normal
+163,52.73,Human Activity Detected
+164,40.32,Human Activity Detected
+165,31.81,Normal
+166,41.41,Human Activity Detected
+167,28.51,Normal
+168,33.21,Normal
+169,38.66,Normal
+170,29.06,Normal
+171,31.35,Normal
+172,30.76,Normal
+173,31.71,Normal
+174,39.91,Normal
+175,53.58,Normal
+176,46.98,Normal
+177,44.08,Normal
+178,50.19,Normal
+179,50.24,Normal
+180,43.33,Normal
+181,46.78,Normal
+182,45.38,Normal
+183,51.44,Normal
+184,52.95,Normal
+185,45.30,Normal
+186,48.80,Normal
+187,45.03,Human Activity Detected
+188,40.44,Human Activity Detected
+189,29.80,Normal
+190,38.27,Normal
+191,30.16,Normal
+192,30.28,Normal
+193,31.61,Normal
+194,37.09,Normal
+195,32.53,Normal
+196,31.68,Normal
+197,31.22,Normal
+198,41.08,Human Activity Detected
+199,50.89,Normal
+200,50.77,Normal
+201,50.24,Normal
+202,45.75,Normal
+203,43.11,Normal
+204,44.39,Normal
+205,43.88,Normal
+206,46.89,Normal
+207,42.81,Normal
+208,45.42,Normal
+209,57.89,Normal
+210,50.10,Normal
+211,38.74,Normal
+212,44.02,Human Activity Detected
+213,31.62,Normal
+214,27.62,Normal
+215,31.79,Normal
+216,39.25,Normal
+217,30.55,Normal
+218,38.09,Normal
+219,36.39,Normal
+220,43.47,Human Activity Detected
+221,30.40,Normal
+222,42.02,Human Activity Detected
+223,52.36,Normal
+224,48.66,Normal
+225,45.61,Normal
+226,42.60,Normal
+227,46.19,Normal
+228,44.35,Normal
+229,48.93,Normal
+230,44.18,Normal
+231,44.73,Normal
+232,44.83,Normal
+233,46.45,Normal
+234,45.63,Normal
+235,38.48,Normal
+236,44.81,Human Activity Detected
+237,52.14,Human Activity Detected
+238,28.90,Normal
+239,38.63,Normal
+240,29.72,Normal
+241,29.16,Normal
+242,31.31,Normal
+243,29.34,Normal
+244,36.58,Normal
+245,40.25,Human Activity Detected
+246,41.56,Human Activity Detected
+247,51.79,Normal
+248,56.55,Normal
+249,46.13,Normal
+250,54.27,Normal
+251,49.14,Normal
+252,45.23,Normal
+253,45.99,Normal
+254,46.80,Normal
+255,46.33,Normal
+256,53.31,Normal
+257,46.73,Normal
+258,48.71,Normal
+259,40.28,Human Activity Detected
+260,39.62,Normal
+261,29.36,Normal
+262,30.92,Normal
+263,26.68,Normal
+264,29.50,Normal
+265,29.58,Normal
+266,37.53,Normal
+267,31.85,Normal
+268,28.70,Normal
+269,34.86,Normal
+270,48.81,Human Activity Detected
+271,58.32,Normal
+272,48.20,Normal
+273,45.75,Normal
+274,44.30,Normal
+275,53.64,Normal
+276,44.52,Normal
+277,44.54,Normal
+278,43.06,Normal
+279,58.84,Normal
+280,44.30,Normal
+281,54.05,Normal
+282,46.98,Normal
+283,35.21,Normal
+284,38.08,Normal
+285,27.74,Normal
+286,31.23,Normal
+287,29.87,Normal
+288,28.96,Normal
+289,61.04,Human Activity Detected
+290,30.87,Normal
+291,32.91,Normal
+292,41.58,Human Activity Detected
+293,29.82,Normal
+294,43.24,Human Activity Detected
+295,50.79,Normal
+296,49.49,Normal
+297,47.11,Normal
+298,46.47,Normal
+299,41.29,Normal
+300,48.49,Normal
+301,44.29,Normal
+302,44.17,Normal
+303,53.04,Normal
+304,49.97,Normal
+305,46.18,Normal
+306,55.61,Normal
+307,53.00,Human Activity Detected
+308,37.77,Normal
+309,36.54,Normal
+310,50.32,Human Activity Detected
+311,51.47,Human Activity Detected
+312,34.72,Normal
+313,38.44,Normal
+314,27.14,Normal
+315,30.91,Normal
+316,30.71,Normal
+317,26.23,Normal
+318,51.14,Human Activity Detected
+319,49.87,Normal
+320,49.84,Normal
+321,44.07,Normal
+322,44.37,Normal
+323,44.13,Normal
+324,52.31,Normal
+325,48.17,Normal
+326,43.80,Normal
+327,48.44,Normal
+328,44.72,Normal
+329,42.88,Normal
+330,46.92,Normal
+331,47.01,Human Activity Detected
+332,44.25,Human Activity Detected
+333,29.40,Normal
+334,41.84,Human Activity Detected
+335,31.12,Normal
+336,30.69,Normal
+337,29.29,Normal
+338,32.49,Normal
+339,39.38,Normal
+340,28.98,Normal
+341,27.83,Normal
+342,57.69,Human Activity Detected
+343,50.17,Normal
+344,49.57,Normal
+345,44.53,Normal
+346,46.04,Normal
+347,51.94,Normal
+348,55.22,Normal
+349,45.65,Normal
+350,46.50,Normal
+351,56.71,Normal
+352,48.85,Normal
+353,45.00,Normal
+354,54.26,Normal
+355,38.64,Normal
+356,39.76,Normal
+357,31.27,Normal
+358,39.28,Normal
+359,31.18,Normal
+360,31.07,Normal
+361,30.17,Normal
+362,29.51,Normal
+363,40.28,Human Activity Detected
+364,38.55,Normal
+365,31.68,Normal
+366,40.19,Human Activity Detected
+367,49.70,Normal
+368,49.11,Normal
+369,47.02,Normal
+370,47.56,Normal
+371,46.15,Normal
+372,46.58,Normal
+373,50.71,Normal
+374,46.11,Normal
+375,45.48,Normal
+376,45.39,Normal
+377,56.24,Normal
+378,50.70,Normal
+379,37.20,Normal
+380,41.52,Human Activity Detected
+381,32.47,Normal
+382,31.00,Normal
+383,29.94,Normal
+384,30.04,Normal
+385,34.11,Normal
+386,52.10,Human Activity Detected
+387,30.88,Normal
+388,29.15,Normal
+389,28.34,Normal
+390,37.62,Normal
+391,50.37,Normal
+392,49.12,Normal
+393,49.12,Normal
+394,45.60,Normal
+395,46.99,Normal
+396,47.41,Normal
+397,61.55,Human Activity Detected
+398,50.42,Normal
+399,48.12,Normal
+400,46.29,Normal
+401,45.59,Normal
+402,49.25,Normal
+403,47.04,Human Activity Detected
+404,46.89,Human Activity Detected
+405,28.28,Normal
+406,32.47,Normal
+407,41.83,Human Activity Detected
+408,32.98,Normal
+409,37.44,Normal
+410,28.74,Normal
+411,30.11,Normal
+412,32.00,Normal
+413,31.18,Normal
+414,44.25,Human Activity Detected
+415,48.33,Normal
+416,52.06,Normal
+417,45.82,Normal
+418,46.59,Normal
+419,53.27,Normal
+420,44.10,Normal
+421,52.96,Normal
+422,45.48,Normal
+423,55.35,Normal
+424,48.92,Normal
+425,42.33,Normal
+426,46.89,Normal
+427,38.88,Normal
+428,45.52,Human Activity Detected
+429,29.60,Normal
+430,31.90,Normal
+431,30.66,Normal
+432,28.96,Normal
+433,29.06,Normal
+434,32.87,Normal
+435,39.23,Normal
+436,39.01,Normal
+437,31.57,Normal
+438,38.09,Normal
+439,52.85,Normal
+440,58.84,Normal
+441,44.17,Normal
+442,43.25,Normal
+443,44.33,Normal
+444,46.67,Normal
+445,50.35,Normal
+446,47.18,Normal
+447,42.34,Normal
+448,45.56,Normal
+449,46.19,Normal
+450,51.38,Normal
+451,38.05,Normal
+452,40.27,Human Activity Detected
+453,29.85,Normal
+454,29.26,Normal
+455,29.96,Normal
+456,29.80,Normal
+457,29.31,Normal
+458,30.31,Normal
+459,37.20,Normal
+460,36.53,Normal
+461,46.76,Human Activity Detected
+462,55.46,Human Activity Detected
+463,51.11,Normal
+464,51.86,Normal
+465,45.27,Normal
+466,51.71,Normal
+467,48.17,Normal
+468,47.85,Normal
+469,52.29,Normal
+470,47.39,Normal
+471,44.19,Normal
+472,57.72,Normal
+473,50.53,Normal
+474,49.23,Normal
+475,38.13,Normal
+476,34.79,Normal
+477,31.47,Normal
+478,27.80,Normal
+479,27.98,Normal
+480,28.15,Normal
+481,29.10,Normal
+482,28.98,Normal
+483,37.33,Normal
+484,33.10,Normal
+485,32.39,Normal
+486,40.28,Human Activity Detected
+487,52.87,Normal
+488,53.56,Normal
+489,55.82,Normal
+490,45.32,Normal
+491,50.97,Normal
+492,48.58,Normal
+493,46.23,Normal
+494,45.69,Normal
+495,53.06,Normal
+496,44.66,Normal
+497,44.73,Normal
+498,50.03,Normal
+499,48.73,Human Activity Detected
+500,39.34,Normal
+501,46.42,Human Activity Detected
+502,28.05,Normal
+503,31.76,Normal
+504,31.78,Normal
+505,30.89,Normal
+506,29.14,Normal
+507,29.59,Normal
+508,46.60,Human Activity Detected
+509,28.95,Normal
+510,50.74,Human Activity Detected
+511,48.53,Normal
+512,50.06,Normal
+513,44.69,Normal
+514,46.52,Normal
+515,52.91,Normal
+516,46.73,Normal
+517,49.16,Normal
+518,47.28,Normal
+519,49.60,Normal
+520,44.79,Normal
+521,44.56,Normal
+522,51.30,Normal
+523,45.68,Human Activity Detected
+524,36.46,Normal
+525,40.17,Human Activity Detected
+526,28.16,Normal
+527,28.19,Normal
+528,37.77,Normal
+529,38.38,Normal
+530,32.23,Normal
+531,38.69,Normal
+532,40.04,Human Activity Detected
+533,31.04,Normal
+534,43.85,Human Activity Detected
+535,50.56,Normal
+536,47.06,Normal
+537,53.19,Normal
+538,54.09,Normal
+539,51.19,Normal
+540,44.87,Normal
+541,59.10,Normal
+542,42.49,Normal
+543,50.31,Normal
+544,52.30,Normal
+545,46.35,Normal
+546,48.11,Normal
+547,37.25,Normal
+548,34.63,Normal
+549,38.13,Normal
+550,30.44,Normal
+551,27.90,Normal
+552,27.97,Normal
+553,28.60,Normal
+554,41.42,Human Activity Detected
+555,34.24,Normal
+556,27.20,Normal
+557,42.15,Human Activity Detected
+558,51.39,Human Activity Detected
+559,49.20,Normal
+560,50.72,Normal
+561,45.66,Normal
+562,49.80,Normal
+563,46.72,Normal
+564,44.54,Normal
+565,47.13,Normal
+566,45.09,Normal
+567,43.24,Normal
+568,42.65,Normal
+569,49.45,Normal
+570,45.18,Normal
+571,45.89,Human Activity Detected
+572,39.74,Normal
+573,29.74,Normal
+574,31.74,Normal
+575,28.24,Normal
+576,35.78,Normal
+577,31.52,Normal
+578,28.00,Normal
+579,36.07,Normal
+580,29.16,Normal
+581,28.86,Normal
+582,40.81,Human Activity Detected
+583,50.60,Normal
+584,47.92,Normal
+585,44.75,Normal
+586,44.87,Normal
+587,43.44,Normal
+588,48.65,Normal
+589,42.76,Normal
+590,54.82,Normal
+591,44.69,Normal
+592,44.50,Normal
+593,48.84,Normal
+594,48.12,Normal
+595,36.51,Normal
+596,39.18,Normal
+597,26.73,Normal
+598,40.56,Human Activity Detected
+599,29.44,Normal
+600,40.85,Human Activity Detected
+601,29.47,Normal
+602,26.39,Normal
+603,45.99,Human Activity Detected
+604,28.68,Normal
+605,29.78,Normal
+606,48.17,Human Activity Detected
+607,58.40,Normal
+608,53.21,Normal
+609,45.79,Normal
+610,44.34,Normal
+611,44.79,Normal
+612,53.05,Normal
+613,55.49,Normal
+614,47.74,Normal
+615,44.94,Normal
+616,44.28,Normal
+617,50.50,Normal
+618,52.66,Normal
+619,38.88,Normal
+620,38.40,Normal
+621,28.49,Normal
+622,30.52,Normal
+623,39.15,Normal
+624,28.41,Normal
+625,30.82,Normal
+626,28.50,Normal
+627,28.72,Normal
+628,39.96,Normal
+629,31.64,Normal
+630,50.11,Human Activity Detected
+631,54.16,Normal
+632,52.24,Normal
+633,44.48,Normal
+634,54.08,Normal
+635,52.30,Normal
+636,45.58,Normal
+637,43.23,Normal
+638,50.92,Normal
+639,44.96,Normal
+640,44.75,Normal
+641,43.26,Normal
+642,48.57,Normal
+643,38.70,Normal
+644,39.45,Normal
+645,42.20,Human Activity Detected
+646,36.36,Normal
+647,37.83,Normal
+648,39.81,Normal
+649,30.18,Normal
+650,36.34,Normal
+651,44.78,Human Activity Detected
+652,30.02,Normal
+653,29.09,Normal
+654,37.36,Normal
+655,50.35,Normal
+656,51.39,Normal
+657,47.17,Normal
+658,53.15,Normal
+659,44.92,Normal
+660,45.13,Normal
+661,44.49,Normal
+662,44.56,Normal
+663,47.64,Normal
+664,44.86,Normal
+665,46.39,Normal
+666,48.94,Normal
+667,38.66,Normal
+668,41.19,Human Activity Detected
+669,28.04,Normal
+670,31.04,Normal
+671,33.14,Normal
+672,40.35,Human Activity Detected
+673,33.76,Normal
+674,29.91,Normal
+675,31.42,Normal
+676,46.16,Human Activity Detected
+677,31.14,Normal
+678,46.53,Human Activity Detected
+679,50.47,Normal
+680,57.04,Normal
+681,47.15,Normal
+682,48.15,Normal
+683,45.48,Normal
+684,43.46,Normal
+685,44.33,Normal
+686,56.20,Normal
+687,44.28,Normal
+688,53.92,Normal
+689,50.17,Normal
+690,54.29,Normal
+691,47.76,Human Activity Detected
+692,45.18,Human Activity Detected
+693,40.49,Human Activity Detected
+694,42.69,Human Activity Detected
+695,33.92,Normal
+696,50.30,Human Activity Detected
+697,32.97,Normal
+698,30.98,Normal
+699,38.40,Normal
+700,28.48,Normal
+701,29.56,Normal
+702,40.21,Human Activity Detected
+703,49.18,Normal
+704,54.89,Normal
+705,42.79,Normal
+706,52.54,Normal
+707,49.94,Normal
+708,52.71,Normal
+709,56.33,Normal
+710,46.65,Normal
+711,45.68,Normal
+712,45.55,Normal
+713,44.95,Normal
+714,48.58,Normal
+715,39.20,Normal
+716,40.04,Human Activity Detected
+717,29.30,Normal
+718,39.27,Normal
+719,31.66,Normal
+720,37.75,Normal
+721,32.19,Normal
+722,26.64,Normal
+723,37.55,Normal
+724,27.74,Normal
+725,28.79,Normal
+726,40.54,Human Activity Detected
+727,48.02,Normal
+728,50.00,Normal
+729,47.20,Normal
+730,45.44,Normal
+731,43.83,Normal
+732,54.55,Normal
+733,43.86,Normal
+734,54.68,Normal
+735,44.26,Normal
+736,45.89,Normal
+737,44.58,Normal
+738,49.15,Normal
+739,44.96,Human Activity Detected
+740,39.64,Normal
+741,32.69,Normal
+742,39.87,Normal
+743,29.43,Normal
+744,46.32,Human Activity Detected
+745,31.64,Normal
+746,28.57,Normal
+747,37.01,Normal
+748,32.00,Normal
+749,34.80,Normal
+750,43.28,Human Activity Detected
+751,50.07,Normal
+752,49.71,Normal
+753,44.23,Normal
+754,46.05,Normal
+755,44.68,Normal
+756,44.99,Normal
+757,44.00,Normal
+758,44.31,Normal
+759,44.99,Normal
+760,50.18,Normal
+761,53.87,Normal
+762,52.68,Normal
+763,35.77,Normal
+764,38.37,Normal
+765,33.06,Normal
+766,30.10,Normal
+767,42.98,Human Activity Detected
+768,34.43,Normal
+769,30.78,Normal
+770,30.02,Normal
+771,43.89,Human Activity Detected
+772,42.39,Human Activity Detected
+773,29.67,Normal
+774,42.01,Human Activity Detected
+775,56.90,Normal
+776,48.54,Normal
+777,42.64,Normal
+778,57.21,Normal
+779,45.53,Normal
+780,46.89,Normal
+781,54.68,Normal
+782,43.56,Normal
+783,43.34,Normal
+784,51.14,Normal
+785,44.30,Normal
+786,47.80,Normal
+787,46.68,Human Activity Detected
+788,43.76,Human Activity Detected
+789,28.49,Normal
+790,29.50,Normal
+791,30.78,Normal
+792,42.92,Human Activity Detected
+793,31.29,Normal
+794,29.83,Normal
+795,31.15,Normal
+796,29.65,Normal
+797,32.49,Normal
+798,40.14,Human Activity Detected
+799,54.93,Normal
+800,48.93,Normal
+801,45.04,Normal
+802,45.92,Normal
+803,44.51,Normal
+804,45.68,Normal
+805,45.49,Normal
+806,45.50,Normal
+807,49.53,Normal
+808,45.31,Normal
+809,43.68,Normal
+810,56.33,Normal
+811,35.59,Normal
+812,36.47,Normal
+813,35.69,Normal
+814,29.23,Normal
+815,37.83,Normal
+816,29.91,Normal
+817,40.88,Human Activity Detected
+818,35.72,Normal
+819,30.34,Normal
+820,29.66,Normal
+821,30.68,Normal
+822,53.23,Human Activity Detected
+823,51.97,Normal
+824,52.02,Normal
+825,44.38,Normal
+826,46.73,Normal
+827,46.17,Normal
+828,52.24,Normal
+829,44.40,Normal
+830,46.62,Normal
+831,44.29,Normal
+832,47.17,Normal
+833,48.24,Normal
+834,47.63,Normal
+835,45.86,Human Activity Detected
+836,39.39,Normal
+837,40.31,Human Activity Detected
+838,30.29,Normal
+839,31.24,Normal
+840,27.75,Normal
+841,39.42,Normal
+842,40.57,Human Activity Detected
+843,31.32,Normal
+844,30.03,Normal
+845,38.34,Normal
+846,42.48,Human Activity Detected
+847,48.88,Normal
+848,49.56,Normal
+849,46.74,Normal
+850,49.81,Normal
+851,46.59,Normal
+852,46.62,Normal
+853,43.65,Normal
+854,44.63,Normal
+855,48.70,Normal
+856,46.98,Normal
+857,45.78,Normal
+858,46.20,Normal
+859,47.64,Human Activity Detected
+860,44.91,Human Activity Detected
+861,27.52,Normal
+862,29.77,Normal
+863,28.34,Normal
+864,33.85,Normal
+865,27.02,Normal
+866,49.78,Human Activity Detected
+867,29.57,Normal
+868,29.32,Normal
+869,38.96,Normal
+870,49.86,Human Activity Detected
+871,49.90,Normal
+872,55.44,Normal
+873,50.32,Normal
+874,45.17,Normal
+875,47.74,Normal
+876,49.86,Normal
+877,44.90,Normal
+878,50.95,Normal
+879,53.51,Normal
+880,44.91,Normal
+881,45.77,Normal
+882,50.55,Normal
+883,45.35,Human Activity Detected
+884,37.59,Normal
+885,31.66,Normal
+886,31.30,Normal
+887,28.93,Normal
+888,39.56,Normal
+889,28.67,Normal
+890,30.96,Normal
+891,30.34,Normal
+892,40.95,Human Activity Detected
+893,30.33,Normal
+894,47.44,Human Activity Detected
+895,48.38,Normal
+896,57.30,Normal
+897,49.45,Normal
+898,46.79,Normal
+899,45.37,Normal
+900,46.37,Normal
+901,57.40,Normal
+902,43.56,Normal
+903,48.07,Normal
+904,54.34,Normal
+905,44.07,Normal
+906,48.60,Normal
+907,37.58,Normal
+908,44.87,Human Activity Detected
+909,40.21,Human Activity Detected
+910,31.69,Normal
+911,28.87,Normal
+912,28.49,Normal
+913,42.76,Human Activity Detected
+914,29.80,Normal
+915,31.26,Normal
+916,29.07,Normal
+917,26.35,Normal
+918,47.98,Human Activity Detected
+919,50.73,Normal
+920,51.24,Normal
+921,52.96,Normal
+922,60.36,Human Activity Detected
+923,54.15,Normal
+924,47.81,Normal
+925,43.69,Normal
+926,51.88,Normal
+927,49.60,Normal
+928,45.27,Normal
+929,47.32,Normal
+930,54.32,Normal
+931,38.52,Normal
+932,35.69,Normal
+933,39.39,Normal
+934,30.86,Normal
+935,28.23,Normal
+936,42.17,Human Activity Detected
+937,31.33,Normal
+938,36.27,Normal
+939,38.25,Normal
+940,28.91,Normal
+941,28.38,Normal
+942,40.76,Human Activity Detected
+943,50.64,Normal
+944,52.39,Normal
+945,51.78,Normal
+946,50.75,Normal
+947,48.78,Normal
+948,47.88,Normal
+949,47.43,Normal
+950,42.59,Normal
+951,41.56,Normal
+952,60.50,Human Activity Detected
+953,43.54,Normal
+954,50.26,Normal
+955,48.29,Human Activity Detected
+956,36.94,Normal
+957,39.52,Normal
+958,33.38,Normal
+959,28.37,Normal
+960,30.62,Normal
+961,30.55,Normal
+962,51.19,Human Activity Detected
+963,28.19,Normal
+964,29.88,Normal
+965,28.87,Normal
+966,40.28,Human Activity Detected
+967,49.62,Normal
+968,50.81,Normal
+969,52.76,Normal
+970,56.39,Normal
+971,46.97,Normal
+972,52.19,Normal
+973,43.31,Normal
+974,48.08,Normal
+975,44.11,Normal
+976,46.85,Normal
+977,51.09,Normal
+978,49.53,Normal
+979,39.84,Normal
+980,43.23,Human Activity Detected
+981,29.54,Normal
+982,34.36,Normal
+983,31.32,Normal
+984,30.99,Normal
+985,33.71,Normal
+986,29.21,Normal
+987,28.66,Normal
+988,30.54,Normal
+989,32.67,Normal
+990,47.85,Human Activity Detected
+991,54.24,Normal
+992,49.87,Normal
+993,44.72,Normal
+994,42.35,Normal
+995,51.17,Normal
+996,53.26,Normal
+997,44.56,Normal
+998,47.18,Normal
+999,43.54,Normal
+1000,44.48,Normal
+1001,44.86,Normal
+1002,48.89,Normal
+1003,38.60,Normal
+1004,42.36,Human Activity Detected
+1005,52.70,Human Activity Detected
+1006,34.30,Normal
+1007,36.72,Normal
+1008,32.32,Normal
+1009,29.55,Normal
+1010,29.87,Normal
+1011,45.50,Human Activity Detected
+1012,42.71,Human Activity Detected
+1013,40.00,Normal
+1014,52.78,Human Activity Detected
+1015,52.67,Normal
+1016,50.37,Normal
+1017,51.26,Normal
+1018,49.98,Normal
+1019,46.30,Normal
+1020,46.55,Normal
+1021,48.56,Normal
+1022,48.82,Normal
+1023,45.50,Normal
+1024,46.48,Normal
+1025,45.19,Normal
+1026,54.91,Normal
+1027,37.46,Normal
+1028,40.82,Human Activity Detected
+1029,30.46,Normal
+1030,30.40,Normal
+1031,44.04,Human Activity Detected
+1032,31.88,Normal
+1033,31.65,Normal
+1034,31.11,Normal
+1035,31.55,Normal
+1036,30.89,Normal
+1037,28.52,Normal
+1038,45.87,Human Activity Detected
+1039,55.02,Normal
+1040,49.39,Normal
+1041,46.48,Normal
+1042,45.77,Normal
+1043,63.67,Human Activity Detected
+1044,46.63,Normal
+1045,49.03,Normal
+1046,43.20,Normal
+1047,44.79,Normal
+1048,44.28,Normal
+1049,47.54,Normal
+1050,48.11,Normal
+1051,36.67,Normal
+1052,38.37,Normal
+1053,28.16,Normal
+1054,30.55,Normal
+1055,29.47,Normal
+1056,30.44,Normal
+1057,27.97,Normal
+1058,27.52,Normal
+1059,27.71,Normal
+1060,31.11,Normal
+1061,31.10,Normal
+1062,44.75,Human Activity Detected
+1063,62.09,Human Activity Detected
+1064,54.53,Normal
+1065,47.48,Normal
+1066,45.26,Normal
+1067,44.26,Normal
+1068,46.55,Normal
+1069,48.07,Normal
+1070,45.06,Normal
+1071,57.87,Normal
+1072,54.81,Normal
+1073,52.85,Normal
+1074,47.63,Normal
+1075,36.02,Normal
+1076,48.91,Human Activity Detected
+1077,36.83,Normal
+1078,26.69,Normal
+1079,30.20,Normal
+1080,40.98,Human Activity Detected
+1081,27.85,Normal
+1082,27.52,Normal
+1083,37.67,Normal
+1084,42.41,Human Activity Detected
+1085,29.32,Normal
+1086,40.40,Human Activity Detected
+1087,51.99,Normal
+1088,49.25,Normal
+1089,51.11,Normal
+1090,45.32,Normal
+1091,43.99,Normal
+1092,49.12,Normal
+1093,42.85,Normal
+1094,52.10,Normal
+1095,46.62,Normal
+1096,45.48,Normal
+1097,45.23,Normal
+1098,54.39,Normal
+1099,36.76,Normal
+1100,44.51,Human Activity Detected
+1101,29.44,Normal
+1102,29.43,Normal
+1103,37.03,Normal
+1104,42.12,Human Activity Detected
+1105,30.30,Normal
+1106,42.75,Human Activity Detected
+1107,30.45,Normal
+1108,29.75,Normal
+1109,37.42,Normal
+1110,41.41,Human Activity Detected
+1111,53.38,Normal
+1112,53.84,Normal
+1113,44.90,Normal
+1114,52.14,Normal
+1115,55.98,Normal
+1116,44.60,Normal
+1117,46.24,Normal
+1118,45.10,Normal
+1119,46.52,Normal
+1120,44.63,Normal
+1121,53.56,Normal
+1122,46.84,Normal
+1123,38.30,Normal
+1124,42.47,Human Activity Detected
+1125,41.90,Human Activity Detected
+1126,29.71,Normal
+1127,40.32,Human Activity Detected
+1128,30.25,Normal
+1129,38.05,Normal
+1130,41.87,Human Activity Detected
+1131,38.72,Normal
+1132,32.58,Normal
+1133,33.25,Normal
+1134,45.09,Human Activity Detected
+1135,48.06,Normal
+1136,49.41,Normal
+1137,51.73,Normal
+1138,44.61,Normal
+1139,43.91,Normal
+1140,61.95,Human Activity Detected
+1141,45.40,Normal
+1142,46.70,Normal
+1143,46.38,Normal
+1144,45.83,Normal
+1145,49.33,Normal
+1146,53.11,Normal
+1147,36.05,Normal
+1148,37.55,Normal
+1149,37.50,Normal
+1150,43.45,Human Activity Detected
+1151,28.19,Normal
+1152,30.65,Normal
+1153,42.14,Human Activity Detected
+1154,31.74,Normal
+1155,39.38,Normal
+1156,44.34,Human Activity Detected
+1157,32.51,Normal
+1158,45.90,Human Activity Detected
+1159,52.27,Normal
+1160,51.25,Normal
+1161,46.24,Normal
+1162,46.33,Normal
+1163,44.82,Normal
+1164,44.11,Normal
+1165,46.98,Normal
+1166,45.26,Normal
+1167,44.97,Normal
+1168,53.80,Normal
+1169,46.35,Normal
+1170,49.95,Normal
+1171,47.41,Human Activity Detected
+1172,37.43,Normal
+1173,31.50,Normal
+1174,49.53,Human Activity Detected
+1175,27.45,Normal
+1176,31.39,Normal
+1177,41.54,Human Activity Detected
+1178,29.07,Normal
+1179,38.12,Normal
+1180,48.29,Human Activity Detected
+1181,38.25,Normal
+1182,42.72,Human Activity Detected
+1183,51.53,Normal
+1184,56.73,Normal
+1185,49.89,Normal
+1186,45.31,Normal
+1187,59.91,Normal
+1188,45.04,Normal
+1189,42.75,Normal
+1190,53.11,Normal
+1191,55.14,Normal
+1192,41.49,Normal
+1193,44.72,Normal
+1194,49.74,Normal
+1195,55.47,Human Activity Detected
+1196,37.62,Normal
+1197,38.42,Normal
+1198,32.66,Normal
+1199,35.03,Normal
+1200,30.23,Normal

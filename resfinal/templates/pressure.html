@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pressure Sensor Dashboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0c0c14;
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0;
+    }
+    
+    .dashboard {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+      padding: 15px 25px;
+      border-radius: 10px;
+      color: white;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .status {
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .card {
+      background-color: #1e1e2d;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      transition: transform 0.3s ease;
+      color: #e0e0e0;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      margin: 0;
+      color: #e0e0e0;
+    }
+    
+    .card-value {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+      color: #3a7bd5;
+    }
+    
+    .chart-container {
+      position: relative;
+      height: 200px;
+      width: 100%;
+    }
+    
+    .full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      background-color: #3a7bd5;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #2a6ac5;
+    }
+    
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-grow: 1;
+    }
+    
+    .slider {
+      flex-grow: 1;
+    }
+    
+    .alert {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff4757;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateX(200%);
+      transition: transform 0.5s ease;
+      z-index: 1000;
+    }
+    
+    .alert.show {
+      transform: translateX(0);
+    }
+    
+    .gauge {
+      position: relative;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    .gauge-body {
+      width: 100%;
+      height: 0;
+      padding-bottom: 50%;
+      background-color: #2d2d42;
+      border-top-left-radius: 100% 200%;
+      border-top-right-radius: 100% 200%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gauge-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: 100%;
+      background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+      transform-origin: bottom center;
+      transform: rotate(0deg);
+      transition: transform 0.5s ease-out;
+    }
+
+    .gauge-cover {
+      width: 75%;
+      height: 150%;
+      background-color: #1e1e2d;
+      border-radius: 50%;
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #3a7bd5;
+      border: 2px solid #3a7bd5;
+    }
+    
+    .high-pressure {
+      color: #ff4757;
+      font-weight: bold;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <header>
+      <h1>Pressure Sensor Dashboard</h1>
+      <div class="status" id="status-indicator">Loading...</div>
+    </header>
+    
+    <div class="controls">
+      <button id="play-pause">Pause</button>
+      <div class="slider-container">
+        <span>Speed:</span>
+        <input type="range" min="200" max="2000" value="1000" class="slider" id="speed-control">
+      </div>
+    </div>
+    
+    <div class="grid">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Barometric Pressure</h3>
+        </div>
+        <div class="gauge">
+          <div class="gauge-body">
+            <div class="gauge-fill" id="barometric-gauge-fill"></div>
+          </div>
+          <div class="gauge-cover" id="barometric-value">--</div>
+        </div>
+        <div class="chart-container">
+          <canvas id="barometric-chart"></canvas>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Average Pressure</h3>
+        </div>
+        <div id="pressure-value" class="card-value">--</div>
+        <div class="chart-container">
+          <canvas id="avg-pressure-chart"></canvas>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Pressure Trend</h3>
+        </div>
+        <div id="trend-value" class="card-value">--</div>
+        <div class="chart-container">
+          <canvas id="trend-chart"></canvas>
+        </div>
+      </div>
+      
+     
+      
+      <div class="card full-width">
+        <div class="card-header">
+          <h3 class="card-title">Sensor Comparison</h3>
+        </div>
+        <div class="chart-container" style="height: 300px;">
+          <canvas id="sensor-comparison-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="alert" id="alert">Pressure change detected!</div>
+  
+  <script>
+    // Initialize empty sensor data array
+let sensorData = [];
+const HIGH_PRESSURE_THRESHOLD = 1025; // hPa - adjust as needed
+const LOW_PRESSURE_THRESHOLD = 1000;  // hPa - adjust as needed
+
+// Fetch data from Django API endpoint
+function fetchSensorData() {
+  fetch('/api/sensor-data/')  // Adjust the URL if your endpoint is different
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Update the sensorData with pressure data from the API response
+      sensorData = data.pressure_data;
+      console.log("Fetched pressure data:", sensorData);
+      
+      // Initialize charts with the fetched data
+      initializeCharts();
+      
+      // Update the dashboard with the initial data
+      updateDashboard();
+    })
+    .catch(error => {
+      console.error('Error fetching sensor data:', error);
+      // Optionally show an error message to the user
+      showAlert('Error fetching sensor data. Please try again later.');
+    });
+}
+
+// Function to update data periodically (simulating real-time)
+function startRealTimeUpdates() {
+  // Schedule periodic data fetches
+  return setInterval(() => {
+    if (isRunning) {
+      fetchSensorData();
+    }
+  }, updateInterval);
+}
+
+// Chart variables
+let barometricChart, avgPressureChart, trendChart, sensorComparisonChart;
+
+// Initialize charts with data
+function initializeCharts() {
+  // Destroy existing charts if they exist
+  if (barometricChart) barometricChart.destroy();
+  if (avgPressureChart) avgPressureChart.destroy();
+  if (trendChart) trendChart.destroy();
+  if (sensorComparisonChart) sensorComparisonChart.destroy();
+  
+  // Chart configurations
+  barometricChart = new Chart(
+    document.getElementById('barometric-chart').getContext('2d'),
+    {
+      type: 'line',
+      data: {
+        labels: sensorData.map(d => `Hour ${d.hour}`),
+        datasets: [{
+          label: 'Barometric',
+          data: sensorData.map(d => d.barometric),
+          borderColor: 'rgba(58, 123, 213, 1)',
+          backgroundColor: 'rgba(58, 123, 213, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 500
+        },
+        scales: {
+          y: {
+            min: 980,
+            max: 1040,
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          },
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    }
+  );
+  
+  avgPressureChart = new Chart(
+    document.getElementById('avg-pressure-chart').getContext('2d'),
+    {
+      type: 'line',
+      data: {
+        labels: sensorData.map(d => `Hour ${d.hour}`),
+        datasets: [{
+          label: 'Average',
+          data: sensorData.map(d => d.avg_pressure),
+          borderColor: 'rgba(0, 210, 255, 1)',
+          backgroundColor: 'rgba(0, 210, 255, 0.1)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 500
+        },
+        scales: {
+          y: {
+            min: 980,
+            max: 1040,
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          },
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    }
+  );
+  
+  trendChart = new Chart(
+    document.getElementById('trend-chart').getContext('2d'),
+    {
+      type: 'bar',
+      data: {
+        labels: sensorData.map(d => `Hour ${d.hour}`),
+        datasets: [{
+          label: 'Trend',
+          data: sensorData.map(d => d.pressure_trend),
+          backgroundColor: sensorData.map(d => 
+            d.pressure_trend > 0 ? 'rgba(46, 213, 115, 0.7)' : 'rgba(255, 71, 87, 0.7)'
+          )
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 500
+        },
+        scales: {
+          y: {
+            min: -5,
+            max: 5,
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          },
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+    }
+  );
+  
+  sensorComparisonChart = new Chart(
+    document.getElementById('sensor-comparison-chart').getContext('2d'),
+    {
+      type: 'line',
+      data: {
+        labels: sensorData.map(d => `Hour ${d.hour}`),
+        datasets: [
+          {
+            label: 'Barometric',
+            data: sensorData.map(d => d.barometric),
+            borderColor: 'rgba(58, 123, 213, 1)',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.4
+          },
+          {
+            label: 'Capacitive',
+            data: sensorData.map(d => d.capacitive),
+            borderColor: 'rgba(46, 213, 115, 1)',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.4
+          },
+          {
+            label: 'Piezoelectric',
+            data: sensorData.map(d => d.piezoelectric),
+            borderColor: 'rgba(255, 71, 87, 1)',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.4
+          },
+          {
+            label: 'Resonant',
+            data: sensorData.map(d => d.resonant),
+            borderColor: 'rgba(253, 150, 68, 1)',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 500
+        },
+        scales: {
+          y: {
+            min: 980,
+            max: 1040,
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          },
+          x: {
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            ticks: {
+              color: '#e0e0e0'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: '#e0e0e0'
+            }
+          }
+        }
+      }
+    }
+  );
+}
+
+// Update gauge visualization
+function updateGauge(value) {
+  const min = 980;
+  const max = 1040;
+  const percentage = Math.min(Math.max((value - min) / (max - min), 0), 1);
+  const rotation = percentage * 180;
+  
+  const gaugeFill = document.getElementById('barometric-gauge-fill');
+  gaugeFill.style.transform = `rotate(${rotation}deg)`;
+  
+  // Change color for high/low pressure
+  if (value > HIGH_PRESSURE_THRESHOLD) {
+    gaugeFill.style.background = 'linear-gradient(90deg, #ff4757, #ff6b81)';
+  } else if (value < LOW_PRESSURE_THRESHOLD) {
+    gaugeFill.style.background = 'linear-gradient(90deg, #7d5fff, #7158e2)';
+  } else {
+    gaugeFill.style.background = 'linear-gradient(90deg, #00d2ff, #3a7bd5)';
+  }
+  
+  document.getElementById('barometric-value').textContent = value.toFixed(2);
+}
+
+// Update dashboard with latest data
+function updateDashboard() {
+  if (!sensorData || sensorData.length === 0) return;
+  
+  const latestData = sensorData[sensorData.length - 1];
+  
+  // Update value displays
+  document.getElementById('pressure-value').textContent = latestData.avg_pressure.toFixed(2) + ' hPa';
+  document.getElementById('trend-value').textContent = latestData.pressure_trend.toFixed(2) + ' hPa/h';
+  document.getElementById('status-indicator').textContent = latestData.status;
+  
+  // Update status color
+  const statusIndicator = document.getElementById('status-indicator');
+  if (latestData.status === 'Normal') {
+    statusIndicator.style.backgroundColor = 'rgba(46, 213, 115, 0.7)';
+  } else if (latestData.status.includes('High Pressure')) {
+    statusIndicator.style.backgroundColor = 'rgba(255, 71, 87, 0.7)';
+    statusIndicator.style.color = '#fff';
+  } else if (latestData.status.includes('Low Pressure')) {
+    statusIndicator.style.backgroundColor = 'rgba(108, 92, 231, 0.7)';
+    statusIndicator.style.color = '#fff';
+  } else if (latestData.status.includes('Rapid')) {
+    statusIndicator.style.backgroundColor = 'rgba(253, 150, 68, 0.7)';
+    statusIndicator.style.color = '#fff';
+  }
+  
+  // Update gauge
+  updateGauge(latestData.barometric);
+  
+  // Check for high/low pressure alerts
+  if (latestData.avg_pressure > HIGH_PRESSURE_THRESHOLD) {
+    document.getElementById('pressure-value').classList.add('high-pressure');
+    showAlert(`High Pressure System detected! Current pressure: ${latestData.avg_pressure.toFixed(2)} hPa`);
+  } else if (latestData.avg_pressure < LOW_PRESSURE_THRESHOLD) {
+    showAlert(`Low Pressure System detected! Current pressure: ${latestData.avg_pressure.toFixed(2)} hPa`);
+  } else {
+    document.getElementById('pressure-value').classList.remove('high-pressure');
+  }
+  
+  // Update all charts
+  const labels = sensorData.map(d => `Hour ${d.hour}`);
+  
+  barometricChart.data.labels = labels;
+  barometricChart.data.datasets[0].data = sensorData.map(d => d.barometric);
+  barometricChart.update();
+  
+  avgPressureChart.data.labels = labels;
+  avgPressureChart.data.datasets[0].data = sensorData.map(d => d.avg_pressure);
+  avgPressureChart.update();
+  
+  trendChart.data.labels = labels;
+  trendChart.data.datasets[0].data = sensorData.map(d => d.pressure_trend);
+  trendChart.data.datasets[0].backgroundColor = sensorData.map(d => 
+    d.pressure_trend > 0 ? 'rgba(46, 213, 115, 0.7)' : 'rgba(255, 71, 87, 0.7)'
+  );
+  trendChart.update();
+  
+  sensorComparisonChart.data.labels = labels;
+  sensorComparisonChart.data.datasets[0].data = sensorData.map(d => d.barometric);
+  sensorComparisonChart.data.datasets[1].data = sensorData.map(d => d.capacitive);
+  sensorComparisonChart.data.datasets[2].data = sensorData.map(d => d.piezoelectric);
+  sensorComparisonChart.data.datasets[3].data = sensorData.map(d => d.resonant);
+  sensorComparisonChart.update();
+}
+
+// Show alert notification
+function showAlert(message) {
+  const alert = document.getElementById('alert');
+  alert.textContent = message;
+  alert.classList.add('show');
+  
+  setTimeout(() => {
+    alert.classList.remove('show');
+  }, 5000);
+}
+
+// Simulation controls
+let isRunning = true;
+let updateInterval = 10000; // Default 10 seconds
+let intervalId;
+
+// Play/Pause button
+document.getElementById('play-pause').addEventListener('click', function() {
+  isRunning = !isRunning;
+  this.textContent = isRunning ? 'Pause' : 'Play';
+});
+
+// Speed control
+document.getElementById('speed-control').addEventListener('input', function() {
+  updateInterval = parseInt(this.value);
+  clearInterval(intervalId);
+  intervalId = startRealTimeUpdates();
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+  // Fetch initial data
+  fetchSensorData();
+  
+  // Start periodic updates
+  intervalId = startRealTimeUpdates();
+});
+  </script>
+</body>
+</html>
