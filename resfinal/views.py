@@ -3,7 +3,6 @@ from django.http import JsonResponse
 import json
 from django.contrib.auth.models import User
 import random
-from .models import Category,Timing,Products,Cart
 from .forms import RegisterForm
 from .models import OtpToken
 from django.contrib import messages
@@ -18,8 +17,7 @@ from django.utils.html import strip_tags
 from django.conf import settings
 from email.mime.image import MIMEImage
 from django.contrib.auth.decorators import login_required
-from .models import Booking
-from .forms import BookingForm
+
 from reportlab.pdfgen import canvas
 
 def index(request):
@@ -726,3 +724,4 @@ def generate_dummy_movement_data():
 def animal(request):
 
     return render(request,'animal_location.html')
+
